@@ -1,0 +1,40 @@
+class Solution {
+    Node sortedMerge(Node head1, Node head2) {
+        // code here
+        Node head3;
+        Node temp3;
+        Node temp1=head1;
+        Node temp2=head2;
+        
+         if(head1.data<head2.data){
+             head3=head1;
+             temp3=head1;
+             temp1=temp1.next;
+    }
+    else{
+            head3=head2;
+             temp3=head2;
+            temp2=head2.next;
+    }
+        while(temp1!=null && temp2!=null){
+            if(temp1.data < temp2.data){
+                temp3.next=temp1;
+                temp3=temp3.next;
+                temp1=temp1.next;
+            }
+            else{
+                temp3.next=temp2;
+                temp3=temp3.next;
+                temp2=temp2.next;
+            }
+            }
+            if(temp1!=null){
+                temp3.next=temp1;
+            }
+            if(temp2!=null){
+                temp3.next=temp2;
+            }
+            return head3;
+        }
+    }
+
